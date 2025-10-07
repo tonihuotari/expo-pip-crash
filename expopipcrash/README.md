@@ -1,7 +1,9 @@
 Reproduce crash by:
 
-1.
-Add android:supportsPictureInPicture="true" to AndroidManifest:
+1. pnpm i 
+2. npx expo prebuild --platform android
+3. Add android:supportsPictureInPicture="true" to AndroidManifest:
+```
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -36,9 +38,10 @@ Add android:supportsPictureInPicture="true" to AndroidManifest:
     </activity>
   </application>
 </manifest>
+```
 
-2. Add this to MainActivity:
-
+4. Add this to MainActivity:
+```
 import android.app.PictureInPictureParams;
 import android.util.Rational;
 
@@ -51,9 +54,11 @@ override fun onUserLeaveHint() {
       enterPictureInPictureMode(pip)
     }
   }
+```
+5. npx expo run:android
 
-3. Run app and press home button to trigger Picture-in-Picture and then app crashes:
-
+6. When app is running, press home button to trigger Picture-in-Picture and then app crashes:
+```
 Error logs:
  ERROR  Your app just crashed. See the error below.
 java.lang.RuntimeException: Unable to start activity ComponentInfo{com.axelinternet.reactnativeplayerexample/expo.modules.devlauncher.launcher.errors.DevLauncherErrorActivity}: java.lang.reflect.InvocationTargetException
@@ -128,3 +133,4 @@ Caused by java.lang.NullPointerException: null cannot be cast to non-null type e
   java.lang.reflect.Method.invoke(Native Method)
   com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:327)
   com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1374)
+  ```
