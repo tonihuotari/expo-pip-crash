@@ -59,9 +59,31 @@ override fun onUserLeaveHint() {
 
 6. When app is running, press home button to trigger Picture-in-Picture and then app crashes:
 ```
-Error logs:
  ERROR  Your app just crashed. See the error below.
-java.lang.RuntimeException: Unable to start activity ComponentInfo{com.axelinternet.reactnativeplayerexample/expo.modules.devlauncher.launcher.errors.DevLauncherErrorActivity}: java.lang.reflect.InvocationTargetException
+java.lang.IllegalArgumentException: Cannot coerce value to an empty range: maximum -48.0 is less than minimum 0.0.
+  kotlin.ranges.RangesKt___RangesKt.coerceIn(_Ranges.kt:1476)
+  expo.modules.devmenu.fab.FabUtilsKt.coerceIn-ULxng0E(FabUtils.kt:49)
+  expo.modules.devmenu.fab.FabUtilsKt.coerceIn-ULxng0E$default(FabUtils.kt:46)
+  expo.modules.devmenu.fab.FabUtilsKt.calculateTargetPosition-IEwrmTk(FabUtils.kt:35)
+  expo.modules.devmenu.fab.MovableFloatingActionButtonKt$MovableFloatingActionButton$3$1$1.invokeSuspend(MovableFloatingActionButton.kt:80)
+  kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+  kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+  androidx.compose.ui.platform.AndroidUiDispatcher.performTrampolineDispatch(AndroidUiDispatcher.android.kt:79)
+  androidx.compose.ui.platform.AndroidUiDispatcher.access$performTrampolineDispatch(AndroidUiDispatcher.android.kt:41)
+  androidx.compose.ui.platform.AndroidUiDispatcher$dispatchCallback$1.doFrame(AndroidUiDispatcher.android.kt:68)
+  android.view.Choreographer$CallbackRecord.run(Choreographer.java:909)
+  android.view.Choreographer.doCallbacks(Choreographer.java:723)
+  android.view.Choreographer.doFrame(Choreographer.java:655)
+  android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:897)
+  android.os.Handler.handleCallback(Handler.java:789)
+  android.os.Handler.dispatchMessage(Handler.java:98)
+  android.os.Looper.loop(Looper.java:164)
+  android.app.ActivityThread.main(ActivityThread.java:6944)
+  java.lang.reflect.Method.invoke(Native Method)
+  com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:327)
+  com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1374)
+ ERROR  Your app just crashed. See the error below.
+java.lang.RuntimeException: Unable to start activity ComponentInfo{com.tonihuotari.MyAndroidApp/expo.modules.devlauncher.launcher.errors.DevLauncherErrorActivity}: java.lang.reflect.InvocationTargetException
   android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2957)
   android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:3032)
   android.app.ActivityThread.-wrap11(Unknown Source:0)
